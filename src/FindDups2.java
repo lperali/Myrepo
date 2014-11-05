@@ -10,7 +10,7 @@ public class FindDups2 {
             if (!uniques.add(a))
                 dups.add(a);
 
-        // Destructive set-difference
+        // Destructive set-difference usage
         uniques.removeAll(dups);
 
         System.out.println("Unique words:    " + uniques);
