@@ -12,7 +12,7 @@ public class HashMapExample {
 		vehicles.put("Audi", 4);
 		vehicles.put("Ford", 10);
 		
-		System.out.println("Total vehicles: " + vehicles.size());
+		//System.out.println("Total vehicles: " + vehicles.size());
 		
 		// Iterate over all vehicles, using the keySet method.
 		for(String key: vehicles.keySet())
