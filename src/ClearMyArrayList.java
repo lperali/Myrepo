@@ -6,9 +6,9 @@ public class ClearMyArrayList {
     public static void main(String a[]){
         ArrayList<String> arrl = new ArrayList<String>();
         //adding elements to the end
-        arrl.add("First");
-        arrl.add("Second");
-        arrl.add("Third");
+        arrl.add("test");
+        arrl.add("revanth");
+        arrl.add("changed");
         arrl.add("Random");
         System.out.println("Actual ArrayList:"+arrl);
         arrl.clear();
