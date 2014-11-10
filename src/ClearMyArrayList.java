@@ -14,6 +14,8 @@ public class ClearMyArrayList {
         arrl.clear();
        // System.out.println("After clear ArrayList:"+arrl);
         System.out.println("last line fo method");
+
+         System.out.println("Last but one line fo method");
     
     }
 }
