@@ -14,7 +14,7 @@ public class HashTableExample {
         Hashtable<Integer, String> stockTable=new Hashtable<Integer,String>();
 
         //Populating Hashtable instance with sample values
-        stockTable.put(new Integer(1), "Two");
+        //stockTable.put(new Integer(1), "Two");
         stockTable.put(new Integer(2), "One");
         stockTable.put(new Integer(4), "Four");
         stockTable.put(new Integer(3), "Three");
