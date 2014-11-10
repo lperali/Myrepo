@@ -16,7 +16,7 @@ public class MyMapSample {
          * In this method you can rmeove the entries
          * while iterating through it.
          */
-        System.out.println("Using Iterator");
+       // System.out.println("Using Iterator");
         Iterator<Map.Entry<String, String>> iterator = studentGrades.entrySet().iterator() ;
         while(iterator.hasNext()){
             Map.Entry<String, String> studentEntry = iterator.next();

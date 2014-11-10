@@ -14,7 +14,7 @@ public class MyListReverse {
         list.add("Movie");
         list.add("football");
         Collections.reverse(list);
-        System.out.println("Results after reverse operation:");
+        //System.out.println("Results after reverse operation:");
         for(String str: list){
             System.out.println(str);
         }
