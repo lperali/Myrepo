@@ -7,6 +7,7 @@ public class SetIterator {
     Iterator iter = set.iterator();
     while (iter.hasNext()) {
       System.out.println(iter.next());
+      System.out.println(iter.next());
     }
   }
 }
