@@ -25,7 +25,7 @@ public class MyMapSample {
             iterator.remove();
         }
         if(studentGrades.isEmpty()){
-        	System.out.println("Data removed from Map now it's empty");
+        	//System.out.println("Data removed from Map now it's empty");
         }
  
     }
