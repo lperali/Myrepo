@@ -5,6 +5,8 @@
 1.Creating a folder 
 
 	mkdr  home/kumar/backup/30102014
+	
+2.NewOne	
 
 3. compy data from source to destination 
 	cp -rf /var/lib/tomcat7/webapps/Focus/  (source)	/home/bkumar/backup/30102014(destination)
