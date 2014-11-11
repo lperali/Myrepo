@@ -18,7 +18,7 @@ public class ClearMyArrayList {
         //System.out.println("Last but one line fo method");
          //System.out.println("Last but one line fo method");
          //System.out.println("Last but one line fo method");
-         
+         // adding new comment here.
         
         // System.out.println("Last but one line fo method");
     
