@@ -6,7 +6,7 @@
 
 	mkdr  home/kumar/backup/30102014
 	
-2.NewOne added more here	
+2.NewOne added more here finished.	
 
 3. compy data from source to destination 
 	cp -rf /var/lib/tomcat7/webapps/Focus/  (source)	/home/bkumar/backup/30102014(destination)
