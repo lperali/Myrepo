@@ -13,8 +13,9 @@ public class FindDups2 {
         // Destructive set-difference usage
         uniques.removeAll(dups);
 
-        //System.out.println("Unique words:    " + uniques);
+        System.out.println("Unique words:    " + uniques);
         System.out.println("Duplicate words: " + dups);
+         System.out.println("Duplicate words: " + dups);
         //System.out.println("Duplicate words: 222222" + dups);
         
     }
