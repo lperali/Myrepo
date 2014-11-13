@@ -15,7 +15,7 @@ public class FindDups2 {
 
         //System.out.println("Unique words:    " + uniques);
         System.out.println("Duplicate words: " + dups);
-        System.out.println("Duplicate words: 222222" + dups);
+        //System.out.println("Duplicate words: 222222" + dups);
         
     }
 }
