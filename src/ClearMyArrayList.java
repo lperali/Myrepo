@@ -10,7 +10,7 @@ public class ClearMyArrayList {
         arrl.add("revanth");
         arrl.add("changed");
         arrl.add("Random");
-        System.out.println("Actual ArrayList:"+arrl);
+        //System.out.println("Actual ArrayList:"+arrl);
         arrl.clear();
 
         //System.out.println("last line fo method");
