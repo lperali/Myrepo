@@ -8,8 +8,8 @@ public class ClearMyArrayList {
         //adding elements to the end
         arrl.add("test");
         arrl.add("revanth");
-        //arrl.add("changed");
-        //arrl.add("Random");
+        arrl.add("changed");
+        arrl.add("Random");
         System.out.println("Actual ArrayList:"+arrl);
         arrl.clear();
 
