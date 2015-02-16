@@ -8,7 +8,7 @@ public class ClearMyArrayList {
         //adding elements to the end
         arrl.add("test");
         arrl.add("revanth");
-        arrl.add("changed");
+        arrl.add("changed");*/
         arrl.add("Random");
         System.out.println("Actual ArrayList:"+arrl);
         arrl.clear();
@@ -26,7 +26,7 @@ public class ClearMyArrayList {
          System.out.println("Last but one line fo method");
          System.out.println("Last but one line fo method");
          
-         System.out.println("Last but one line fo method");*/
+         System.out.println("Last but one line fo method");
     
     }
 }
