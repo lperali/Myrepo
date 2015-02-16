@@ -9,5 +9,6 @@
 	        for (String a : args)
 	               s.add(a);
 	               System.out.println(s.size() + " distinct words: " + s);
+	               System.out.println(s.size() + " distinct words: " + s);
 	    }
 	}
