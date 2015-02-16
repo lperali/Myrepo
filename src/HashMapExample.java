@@ -27,7 +27,7 @@ public class HashMapExample {
 		// Clear all values.
 		vehicles.clear();
 		
-		// Equals to zero.
+		/* Equals to zero.*/
 		System.out.println("After clear operation, size: " + vehicles.size()); 
 	}
 }
