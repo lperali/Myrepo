@@ -12,7 +12,7 @@ public class MyListCheck {
         arrl.add("Random");
         List<String> list = new ArrayList<String>();
         list.add("Random");
-        //System.out.println("Does ArrayList contains all list elements?: "
+        System.out.println("Does ArrayList contains all list elements?: "
                     +arrl.containsAll(list));
         /*list.add("one");
         System.out.println("Does ArrayList contains all list elements?: "
