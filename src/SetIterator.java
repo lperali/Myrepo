@@ -6,8 +6,8 @@ public class SetIterator {
     Set set = new HashSet(Arrays.asList(elements));
     Iterator iter = set.iterator();
     while (iter.hasNext()) {
-      //System.out.println(iter.next());
-//      System.out.println(iter.next());
+      System.out.println(iter.next());
+      System.out.println(iter.next());
     }
   }
 }
