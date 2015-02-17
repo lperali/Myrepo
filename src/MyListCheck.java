@@ -11,7 +11,6 @@ public class MyListCheck {
         arrl.add("Third");
         arrl.add("Random");
         List<String> list = new ArrayList<String>();
-        list.add("Second");
         list.add("Random");
         //System.out.println("Does ArrayList contains all list elements?: "
                     +arrl.containsAll(list));
