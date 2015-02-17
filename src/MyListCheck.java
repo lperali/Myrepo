@@ -5,7 +5,7 @@ import java.util.List;
 public class MyListCheck {
  
     public static void main(String a[]){
-        ArrayList<String> arrl = new ArrayList<String>();
+        //ArrayList<String> arrl = new ArrayList<String>();
         arrl.add("First");
         arrl.add("Second");
         arrl.add("Third");
