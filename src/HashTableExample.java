@@ -34,7 +34,7 @@ public class HashTableExample {
             System.out.println("Key :"+key+"  value :"+value);
 
         }
-        System.out.println("Iteration over Hashtable finished");
+        //System.out.println("Iteration over Hashtable finished");
     }
 
 }
