@@ -20,7 +20,7 @@ public class SetIteratorExample {
         System.out.println(s);
     }
    
-    System.out.println("Iterator");
+    //System.out.println("Iterator");
     Iterator<String> it = set.iterator();
     while (it.hasNext()) {
         String s = it.next();
