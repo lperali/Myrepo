@@ -3,13 +3,13 @@ import java.util.ArrayList;
  
 public class ClearMyArrayList {
  
-   /* public static void main(String a[]){
+    public static void main(String a[]){
         ArrayList<String> arrl = new ArrayList<String>();
-        //adding elements to the end
-        arrl.add("test");
+        adding elements to the end
+        /*arrl.add("test");
         arrl.add("revanth");
         arrl.add("changed");
-        arrl.add("Random");
+        arrl.add("Random");*/
         System.out.println("Actual ArrayList:"+arrl);
         arrl.clear();
 
@@ -18,7 +18,7 @@ public class ClearMyArrayList {
 
 
         System.out.println("last line fo method");
-        System.out.println("Last but one line fo method");*/
+        System.out.println("Last but one line fo method");
 
         //System.out.println("last line fo method");
         //System.out.println("Last but one line fo method");
