@@ -19,7 +19,7 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="index.htm">ndexController</prop>
+                <prop key="index.htm">indexController</prop>
                 <prop key="ex.htm">myController</prop>
             </props>
         </property>
@@ -33,7 +33,7 @@
     <!--
     The index controller.
     -->
-    <bean name="ndexController"
+    <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
     <bean name="myController"
