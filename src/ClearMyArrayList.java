@@ -20,13 +20,13 @@ public class ClearMyArrayList {
         System.out.println("last line fo method");
         System.out.println("Last but one line fo method");
 
-        //System.out.println("last line fo method");
-        //System.out.println("Last but one line fo method");
+        System.out.println("last line fo method");
+        System.out.println("Last but one line fo method");
 
          System.out.println("Last but one line fo method");
          System.out.println("Last but one line fo method");
          
-         //System.out.println("Last but one line fo method");
+         System.out.println("Last but one line fo method");
     
     }
 }
