@@ -1,5 +1,6 @@
 package com.mkyong.rest;
 
+//bean class
 public class Employee {
     int E_ID;
     String E_NAME;
