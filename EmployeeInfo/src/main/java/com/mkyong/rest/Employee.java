@@ -1,10 +1,12 @@
 package com.mkyong.rest;
 
+//bean class
 public class Employee {
-    int E_ID;
-    String E_NAME;
-    int DEPT_ID;
-    String SALARY;
+    private int E_ID;
+    private String E_NAME;
+    private int DEPT_ID;
+    private float SALARY;
+
     public int getE_ID() {
         return this.E_ID;
     }
@@ -23,10 +25,10 @@ public class Employee {
     public void setDEPT_ID(int DEPT_ID) {
         this.DEPT_ID=DEPT_ID;
     }
-    public String getSALARY() {
+    public float getSALARY() {
         return this.SALARY;
     }
-    public void setSALARY(String SALARY) {
+    public void setSALARY(Float SALARY) {
         this.SALARY=SALARY;
     }
 }

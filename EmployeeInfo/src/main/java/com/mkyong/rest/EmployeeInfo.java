@@ -1,6 +1,7 @@
 package com.mkyong.rest;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
@@ -8,6 +9,7 @@ import javax.ws.rs.HeaderParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 
 import java.sql.Connection;
@@ -46,7 +48,7 @@ public class EmployeeInfo {
             while(rs.next()) {
                 emp.setE_NAME(rs.getString(2));
                 emp.setDEPT_ID(rs.getInt(3));
-                emp.setSALARY(rs.getString(4));
+                emp.setSALARY(rs.getFloat(4));
             }
                 conn.close();
             }catch(Exception e){
@@ -76,7 +78,7 @@ public class EmployeeInfo {
                 emp.setE_ID(rs.getInt(1));
                 emp.setE_NAME(rs.getString(2));
                 emp.setDEPT_ID(rs.getInt(3));
-                emp.setSALARY(rs.getString(4));
+                emp.setSALARY(rs.getFloat(4));
                 empMap.put(emp.getE_ID(),emp);
             }
             conn.close();
@@ -88,16 +90,11 @@ public class EmployeeInfo {
 
 
 
-    @GET
+    @POST
     @Path("/insertemp")
-    @Produces("application/json")
+    @Consumes("application/json")
     //***************************** method to insert an employee ***********************************
-    public Employee getInsertedEmp(){
-        Employee emp = new Employee();
-        emp.setE_ID(1020);
-        emp.setE_NAME("VARUN");
-        emp.setDEPT_ID(10);
-        emp.setSALARY("25000");
+    public String getInsertedEmp(Employee emp) throws SQLException{
         String output="";
         int rows=0;
         try{
@@ -109,14 +106,18 @@ public class EmployeeInfo {
             stmt.setInt(1,emp.getE_ID());
             stmt.setString(2,emp.getE_NAME());
             stmt.setInt(3,emp.getDEPT_ID());
-            stmt.setString(4,emp.getSALARY());
+            stmt.setFloat(4, emp.getSALARY());
             rows = stmt.executeUpdate();
+
             output = "Number of Employees inserted :" + rows;
             conn.close();
-        }catch(Exception e){
+        }catch(SQLException e){
             output=e.toString();
         }
-        return emp;
+        catch(Exception e){
+            output=e.toString();
+        }
+        return output;
     }
 
 
@@ -155,7 +156,7 @@ public class EmployeeInfo {
         emp.setE_ID(1012);
         emp.setE_NAME("HARSHA");
         emp.setDEPT_ID(20);
-        emp.setSALARY("23000");
+        emp.setSALARY(23000.0f);
         String output="";
         int rows=0;
         try{
@@ -167,7 +168,7 @@ public class EmployeeInfo {
             stmt.setInt(4,emp.getE_ID());
             stmt.setString(1,emp.getE_NAME());
             stmt.setInt(2,emp.getDEPT_ID());
-            stmt.setString(3,emp.getSALARY());
+            stmt.setFloat(3,emp.getSALARY());
             rows = stmt.executeUpdate();
             output = "Number of Employees updated :" + rows;
             conn.close();
