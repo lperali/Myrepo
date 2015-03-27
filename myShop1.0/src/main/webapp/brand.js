@@ -1,7 +1,8 @@
 $(function() {
         var dialog, form,
         brandName = $( "#brandName" ),
-        allFields = $( [] ).add( brandName ),
+        categoryId = $( "#categoryId" ),
+        allFields = $( [] ).add( brandName ).add(categoryId),
         tips = $( ".validateTips" );
 
         function updateTips( t ) {
@@ -44,7 +45,7 @@ $(function() {
             if ( valid ) {
                 var $form = $( this ),
                     url = "http://172.20.105.121:8080/myShop1.0/rest/brand/insert";
-                $.post( url, { brandName: brandName.val()})
+                $.post( url, { brandName: brandName.val(),categoryId: categoryId.val()})
                       .done(function( data ) {
                                   alert( "Data Loaded: " + data );
                                     });
@@ -77,6 +78,20 @@ form = dialog.find( "form" ).on( "submit", function( event ) {
 $(function(){
 $( "#add-brand" ).button().on( "click", function() {
         dialog.dialog( "open" );
+        $.ajax({
+            type: "GET",
+            url: "http://172.20.105.121:8080/myShop1.0/rest/category/list",
+            dataType: "json",
+            success: function(resp) {
+                $("#categoryId").find('option').remove();
+                for(i=0; i < resp.length; i++){
+                    $("#categoryId").append('<option value="'+resp[i].categoryId+'">'+resp[i].categoryName+'</option>');
+                    }
+                },
+            error: function(e) {
+                alert('My error: ' + e);
+                }
+            });
         });
 });
 });

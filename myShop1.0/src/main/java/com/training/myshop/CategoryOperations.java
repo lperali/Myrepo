@@ -266,4 +266,74 @@ public class CategoryOperations {
             }
             return output;
         }
+        
+        @POST
+        @Consumes(MediaType.TEXT_PLAIN)
+        @Produces("application/json")
+        @Path("/search/{value}")
+        public List<SearchCategory> search(@PathParam("value") String value) throws SQLException {
+            //value = value+10;
+            Connection conn = null;
+            Statement stmt = null;
+            String str = null;
+            String categoryName = null;
+            String brandName = null;
+            String modelName = null;
+            String modelDescription = null;
+            float price = 0.0f;
+            //int brandId=0;
+            //String categoryName = null;
+            List<SearchCategory> searchList = new ArrayList<SearchCategory>();
+            try {
+                conn = getConnected();
+                stmt = conn.createStatement();
+                if(isInteger(value)) {
+                    int searchId = Integer.parseInt(value);
+                    String brandIdsql = "select c.categoryName,b.brandName,m.modelName,m.price,m.modelDescription from category c,brand b,model m where c.categoryId="+searchId+" and c.categoryId=b.categoryId and b.brandId = m.brandId";
+                    ResultSet rs = stmt.executeQuery(brandIdsql);
+                    while(rs.next()) {
+                        SearchCategory searchCategory = new SearchCategory();
+searchCategory.setCategoryName(rs.getString("c.categoryName"));
+searchCategory.setBrandName(rs.getString("b.brandName"));
+searchCategory.setModelName(rs.getString("m.modelName"));
+searchCategory.setPrice(rs.getFloat("m.price"));
+searchCategory.setModelDescription(rs.getString("m.modelDescription"));
+                        searchList.add(searchCategory);
+                    }
+                    rs.close();
+                    //return searchList;
+                  }
+                else {
+                    //return searchList;
+                }
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+            }
+             return searchList;
+        }
+        public static boolean isInteger(String str) {
+    if (str == null) {
+        return false;
+    }
+    int length = str.length();
+    if (length == 0) {
+        return false;
+    }
+    int i = 0;
+    if (str.charAt(0) == '-') {
+        if (length == 1) {
+            return false;
+        }
+        i = 1;
+    }
+    for (; i < length; i++) {
+        char c = str.charAt(i);
+        if (c <= '/' || c >= ':') {
+            return false;
+        }
+    }
+    return true;
+} 
+
 }

@@ -84,6 +84,21 @@ form = dialog.find( "form" ).on( "submit", function( event ) {
 $(function(){
 $( "#add-model" ).button().on( "click", function() {
         dialog.dialog( "open" );
+        var categoryId = $("#category").val();
+        $.ajax({
+            type: "GET",
+            url: "http://172.20.105.121:8080/myShop1.0/rest/brand/list/" + categoryId,
+            dataType: "json",
+            success: function(resp) {
+                $("#brandId").find('option').remove();
+                for(i=0; i < resp.length; i++){
+                    $("#brandId").append('<option value="'+ resp[i].brandId +'">'+ resp[i].brandName +'</option>');
+                    }
+                },
+            error: function(e) {
+                alert('Brand error: ' + e);
+                }
+            });
         });
 });
 });

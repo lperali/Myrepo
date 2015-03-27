@@ -19,7 +19,7 @@ $(function() {
                 //alert(typeFeed);
                 $.ajax({
                         type: "GET",
-                        url: "http://172.20.105.121:8080/myShop1.0/rest/brand/list/",
+                        url: "http://172.20.105.121:8080/myShop1.0/rest/brand/list/" + categoryId,
                         dataType: "json",
                         success: function(resp) {
                                 $("#brand").find('option').remove();

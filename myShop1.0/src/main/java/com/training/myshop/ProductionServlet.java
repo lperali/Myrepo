@@ -39,6 +39,7 @@ import com.sun.jersey.api.client.ClientResponse;
 public class ProductionServlet extends HttpServlet {
     private boolean isMultipart;
     private String tempPath;
+    private String tempPath1;
     private String thumbPath;
     private String mediumPath;
     private String largePath;
@@ -52,6 +53,7 @@ public class ProductionServlet extends HttpServlet {
     public void init( ) {
         // Get the file location where it would be stored.
         tempPath = getServletContext().getInitParameter("file-upload-temp");
+        tempPath1 = getServletContext().getInitParameter("file-upload-temp1");
         thumbPath = getServletContext().getInitParameter("file-upload-thumb");
         mediumPath = getServletContext().getInitParameter("file-upload-medium");
         largePath = getServletContext().getInitParameter("file-upload-large");
@@ -88,23 +90,36 @@ public class ProductionServlet extends HttpServlet {
                         categoryId = Integer.parseInt(fi.getString());
                     }
                 }
-                if ( !fi.isFormField () ) {
+                else {
                     // Get the uploaded file parameters
                     String fieldName = fi.getFieldName();
+                    //JSONObject obj = new JSONObject();
                     fileName = fi.getName();
-                    String contentType = fi.getContentType();
-                    boolean isInMemory = fi.isInMemory();
-                    long sizeInBytes = fi.getSize();
-                    /* **************** Write the file ****************** */
-                    if( fileName.lastIndexOf("\\") >= 0 ) {
-                        file = new File( tempPath + fileName.substring( fileName.lastIndexOf("\\"))) ;
+                    if ( !(fileName.isEmpty())) {
+                        String contentType = fi.getContentType();
+                        boolean isInMemory = fi.isInMemory();
+                        long sizeInBytes = fi.getSize();
+                        /* **************** Write the file ****************** */
+                        if( fileName.lastIndexOf("\\") >= 0 ) {
+                            file = new File( tempPath + fileName.substring( fileName.lastIndexOf("\\"))) ;
+                        } else {
+                            file = new File( tempPath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+                        }
+                        fi.write( file ) ;
+                        transform(response,request);
                     } else {
-                        file = new File( tempPath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
+                        String defaultFileName= "";
+                        File defaultFile = new File(tempPath1);
+                        File[] listOfFiles = defaultFile.listFiles();
+                        for (int k = 0; k < listOfFiles.length; k++) {
+                            if (listOfFiles[k].isFile()) {
+                               defaultFileName = listOfFiles[k].getName();
+                            }
+                        }
                     }
-                    fi.write( file ) ;
                 }
             }
-            transform(response,request);
+            //common task
             ClientConfig config = new DefaultClientConfig();
             Client client = Client.create(config);
             WebResource service = client.resource("http://172.20.105.121:8080/myShop1.0/rest/product/insert");
@@ -119,7 +134,8 @@ public class ProductionServlet extends HttpServlet {
         }catch(Exception ex) {
             System.out.println(ex);
         }
-    }
+    } 
+    
     public void transform(HttpServletResponse response,HttpServletRequest request)throws ServletException, IOException {
         BufferedImage image = null;
         try {
@@ -131,6 +147,7 @@ public class ProductionServlet extends HttpServlet {
             ioe.printStackTrace();
         }
     }
+        
     public void convertThumbnails(BufferedImage image,HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
         try {
             BufferedImage thumbImg = Scalr.resize(image, 150);

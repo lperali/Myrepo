@@ -17,7 +17,17 @@
                 </init-param>
 
 		<load-on-startup>1</load-on-startup>
+
 	</servlet>
+
+       <servlet>
+           <servlet-name>SearchServlet</servlet-name>
+           <servlet-class>com.training.myshop.SearchServlet</servlet-class>
+       </servlet>
+       <servlet-mapping>
+           <servlet-name>SearchServlet</servlet-name>
+           <url-pattern>/SearchServlet</url-pattern>
+       </servlet-mapping> 
 
 	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
@@ -39,6 +49,12 @@
             <description>Location to store uploaded file</description>
             <param-name>file-upload-temp</param-name>
             <param-value>/home/rajyalakshmi/Desktop/apache-tomcat-7.0.57/temp/</param-value>
+       </context-param>
+
+       <context-param>
+            <description>Location to store uploaded file</description>
+            <param-name>file-upload-temp1</param-name>
+            <param-value>/home/rajyalakshmi/Desktop/myShop1.0/src/main/webapp/temp/</param-value>
        </context-param>
        <context-param>
            <description>Location to store uploaded file</description>

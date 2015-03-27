@@ -52,19 +52,20 @@ public class BrandOperations {
 
     @GET
         @Produces(MediaType.APPLICATION_JSON)
-        @Path("/list")
-        public List<Brand> brandList() {
+        @Path("/list/{category}")
+        public List<Brand> brandList(@PathParam("category") int categoryId) {
             Connection conn = null;
             List<Brand> brandList = new ArrayList<Brand>();
             Statement stmt = null;
             try {
                 conn = getConnected();
                 stmt = conn.createStatement();
-                String sql = "select * from brand";
+                String sql = "select * from brand where categoryId = " + categoryId;
                 ResultSet rs = stmt.executeQuery(sql);
                 while(rs.next()) {
                     Brand brand = new Brand();
                     brand.setBrandId(rs.getInt("brandId"));
+                    brand.setCategoryId(rs.getInt("categoryId"));
                     brand.setBrandName(rs.getString("brandName"));
                     //add this brand object to the brandList object
                     brandList.add(brand);
@@ -178,7 +179,8 @@ public class BrandOperations {
         @Produces(MediaType.TEXT_PLAIN)
         //@Consumes("application/json")
         @Path("/insert")
-        public String insertBrand(@FormParam("brandName") String brandName) {
+        public String insertBrand(@FormParam("brandName") String brandName,
+                @FormParam("categoryId") int categoryId) {
 
             Connection conn = null;
             PreparedStatement pstmt = null;
@@ -189,9 +191,10 @@ public class BrandOperations {
                 conn = getConnected();
                 //stmt = conn.createStatement();
                 output =brandName;
-                String sql = "insert into brand(brandName) values(?)";
+                String sql = "insert into brand(brandName, categoryId) values(?, ?)";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, brandName);
+                pstmt.setInt(2, categoryId);
                 int updated = pstmt.executeUpdate();
                 output = output + updated + "records successfully";
             } catch(Exception e) {
